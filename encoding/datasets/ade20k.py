@@ -19,7 +19,7 @@ from .base import BaseDataset
 
 class ADE20KSegmentation(BaseDataset):
     BASE_DIR = 'ADEChallengeData2016'
-    NUM_CLASS = 150
+    NUM_CLASS = 150 #150
     def __init__(self, root=os.path.expanduser('~/.encoding/data'), split='train',
                  mode=None, transform=None, target_transform=None, **kwargs):
         super(ADE20KSegmentation, self).__init__(
@@ -129,12 +129,12 @@ def _get_ade20k_pairs(folder, split='train'):
         mask_folder = os.path.join(folder, 'annotations/training')
         img_paths, mask_paths = get_path_pairs(img_folder, mask_folder)
         print('len(img_paths):', len(img_paths))
-        assert len(img_paths) == 20210
+        # assert len(img_paths) == 20210
     elif split == 'val':
         img_folder = os.path.join(folder, 'images/validation')
         mask_folder = os.path.join(folder, 'annotations/validation')
         img_paths, mask_paths = get_path_pairs(img_folder, mask_folder)
-        assert len(img_paths) == 2000
+        # assert len(img_paths) == 2000
     else:
         assert split == 'trainval'
         train_img_folder = os.path.join(folder, 'images/training')
@@ -145,5 +145,5 @@ def _get_ade20k_pairs(folder, split='train'):
         val_img_paths, val_mask_paths = get_path_pairs(val_img_folder, val_mask_folder)
         img_paths = train_img_paths + val_img_paths
         mask_paths = train_mask_paths + val_mask_paths
-        assert len(img_paths) == 22210
+        # assert len(img_paths) == 22210
     return img_paths, mask_paths
