@@ -63,9 +63,9 @@ class BaseDataset(data.Dataset):
 
     def _sync_transform(self, img, mask):
         # random mirror
-        if random.random() < 0.5:
-            img = img.transpose(Image.FLIP_LEFT_RIGHT)
-            mask = mask.transpose(Image.FLIP_LEFT_RIGHT)
+        # if random.random() < 0.5:
+        #     img = img.transpose(Image.FLIP_LEFT_RIGHT)
+        #     mask = mask.transpose(Image.FLIP_LEFT_RIGHT)
         crop_size = self.crop_size
         # random scale (short edge)
         w, h = img.size
